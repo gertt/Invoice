@@ -4,7 +4,6 @@
 use frame_support::traits::{Currency, LockIdentifier};
 pub use pallet::*;
 
-const EXAMPLE_ID: LockIdentifier = *b"example ";
 const ID: u8 = 100;
 
 type AccountIdOf<T> = <T as frame_system::Config>::AccountId;
@@ -15,6 +14,11 @@ type BalanceOf<T> = <<T as Config>::Currency as Currency<AccountIdOf<T>>>::Balan
 mod tests;
 #[cfg(test)]
 mod mock;
+mod benchmarking;
+
+pub mod weights;
+
+pub use weights::*;
 
 #[frame_support::pallet]
 pub mod pallet {
@@ -22,11 +26,10 @@ pub mod pallet {
 	use frame_support::{dispatch::*, pallet_prelude::*};
 	use frame_system::pallet_prelude::*;
 	use sp_std::vec::Vec;
-
-	use crate::{BalanceOf, EXAMPLE_ID, ID};
 	use frame_support::sp_runtime::SaturatedConversion;
 	use frame_support::traits::{Currency, ExistenceRequirement::AllowDeath};
-	use frame_support::traits::{LockableCurrency, WithdrawReasons};
+	use frame_support::traits::{LockableCurrency};
+	use crate::{BalanceOf,ID, WeightInfo};
 
 	/// Configure the pallet by specifying the parameters and types on which it depends.
 	#[pallet::config]
@@ -36,6 +39,8 @@ pub mod pallet {
 
 		/// The lockable currency type
 		type Currency: LockableCurrency<Self::AccountId, Moment = Self::BlockNumber>;
+
+		type WeightInfo: WeightInfo;
 	}
 
 	#[pallet::pallet]
@@ -102,7 +107,7 @@ pub mod pallet {
 	/// Create invoice between two addresses
 	#[pallet::call]
 	impl<T: Config> Pallet<T> {
-		#[pallet::weight(10_000)]
+		#[pallet::weight(T::WeightInfo::create_invoice())]
 		pub fn create_invoice(
 			origin: OriginFor<T>,
 			to: T::AccountId,
@@ -145,6 +150,7 @@ pub mod pallet {
 			Ok(().into())
 		}
 
+		/*
 		/// Show all invoices
 		#[pallet::weight(10_000)]
 		pub fn show_all_invoices(origin: OriginFor<T>) -> DispatchResultWithPostInfo {
@@ -154,7 +160,7 @@ pub mod pallet {
 
 			if <InvoiceSender<T>>::contains_key(&from) {
 				let maybe_invoice_sender = <InvoiceSender<T>>::get(&from);
-				if let Some(invoice_sender) = maybe_invoice_sender {
+				if let Some(_invoice_sender) = maybe_invoice_sender {
 					//Self::deposit_event(Event::InvoiceListEvent(invoice_sender.get(index)));
 					//for i in invoice_sender {
 					//Self::deposit_event(Event::InvoiceListEvent(invoice_sender));
@@ -183,7 +189,7 @@ pub mod pallet {
 			// Check if the sender and receiver have not the same address
 
 
-			let maybe_contract_sender = <InvoiceSender<T>>::get(&from);
+			let _maybe_contract_sender = <InvoiceSender<T>>::get(&from);
 
 			let mut is_unpaid_invoice = false;
 			if let Some(mut invoices_recevier) = Self::invoice_receiver(&from) {
@@ -206,5 +212,7 @@ pub mod pallet {
 			}
 			Err(<Error<T>>::AnyError.into())
 		}
+
+		*/
 	}
 }

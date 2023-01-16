@@ -74,6 +74,7 @@ impl pallet_balances::Config for Test {
 impl Config for Test {
     type Event = Event;
     type Currency = Balances;
+    type WeightInfo = invoice::weights::SubstrateWeight<Test>;
 }
 
 

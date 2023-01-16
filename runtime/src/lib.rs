@@ -268,6 +268,7 @@ impl pallet_sudo::Config for Runtime {
 impl invoice::Config for Runtime {
 	type Event = Event;
 	type Currency = Balances;
+	type WeightInfo = invoice::weights::SubstrateWeight<Runtime>;
 }
 
 
@@ -336,6 +337,7 @@ mod benches {
 		[frame_system, SystemBench::<Runtime>]
 		[pallet_balances, Balances]
 		[pallet_timestamp, Timestamp]
+		[invoice, Invoice]
 	);
 }
 
