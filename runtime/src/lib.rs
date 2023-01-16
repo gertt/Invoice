@@ -44,8 +44,6 @@ pub use sp_runtime::BuildStorage;
 pub use sp_runtime::{Perbill, Permill};
 
 
-pub use escrow;
-
 pub use invoice;
 
 /// An index to a block.
@@ -267,12 +265,6 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
-impl escrow::Config for Runtime {
-	type Event = Event;
-	type Currency = Balances;
-	type WeightInfo = escrow::weights::SubstrateWeight<Runtime>;
-}
-
 impl invoice::Config for Runtime {
 	type Event = Event;
 	type Currency = Balances;
@@ -299,7 +291,6 @@ construct_runtime!(
 		TransactionPayment: pallet_transaction_payment,
 		Sudo: pallet_sudo,
 		// Include the custom logic from the pallet-template in the runtime.
-		Escrow: escrow,
 		Invoice: invoice,
 	}
 );
@@ -345,7 +336,6 @@ mod benches {
 		[frame_system, SystemBench::<Runtime>]
 		[pallet_balances, Balances]
 		[pallet_timestamp, Timestamp]
-		[escrow, Escrow]
 	);
 }
 

@@ -1,4 +1,4 @@
-use crate::{self as escrow, Config};
+use crate::{self as invoice, Config};
 use frame_support::{construct_runtime, parameter_types};
 use sp_core::H256;
 use sp_io::TestExternalities;
@@ -8,7 +8,6 @@ use sp_runtime::{
 };
 
 use core::convert::*;
-
 
 type UncheckedExtrinsic = frame_system::mocking::MockUncheckedExtrinsic<Test>;
 type Block = frame_system::mocking::MockBlock<Test>;
@@ -21,7 +20,7 @@ construct_runtime!(
 	{
 		System: frame_system,
         Balances: pallet_balances,
-		Escrow: escrow,
+		Invoice: invoice,
 	}
 );
 
@@ -75,7 +74,6 @@ impl pallet_balances::Config for Test {
 impl Config for Test {
     type Event = Event;
     type Currency = Balances;
-   // type WeightInfo = escrow::weights::SubstrateWeight<Test>;
 }
 
 
