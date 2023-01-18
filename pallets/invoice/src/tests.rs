@@ -44,7 +44,7 @@ fn create_invoice_ok() {
 
 
 #[test]
-fn create_invoice_ok_2() {
+fn exist_invoice_1() {
     new_test_ext().execute_with(|| {
         const ALICE: u64 = 1;
         const BOB: u64 = 2;
@@ -54,25 +54,31 @@ fn create_invoice_ok_2() {
         let amount = 4000;
         let msg: Vec<u8> = vec![2, 23, 34, 45];
 
-        // assert_ok!(Escrow::create_invoice(
-        // 	origin.clone(),
-        // 	to,
-        // 	amount.clone(),
-        // 	msg.clone()));
-        //
-        // let contract = Invoice {
-        //     origin: from.clone(),
-        //     to: to.clone(),
-        //     amount,
-        //     status: false,
-        //     id: 0,
-        //     msg: msg.clone(),
-        // };
-        //
-        // let mut invoice_vec: Vec<Invoice<T::AccountId, T::AccountId, BalanceOf<T>>> = Vec::new();
-        // invoice_vec.push(contract);
+        assert_ok!(Invoice::create_invoice(
+                origin.clone(),
+                to,
+                amount.clone(),
+                msg.clone()));
+
+        let origin = Origin::signed(ALICE);
+        assert_ok!(Invoice::exist_invoice(
+                origin.clone()
+        ));
     })
 }
+
+#[test]
+fn exist_invoice_2() {
+    new_test_ext().execute_with(|| {
+        const ALICE: u64 = 1;
+        let origin = Origin::signed(ALICE);
+
+        assert_noop!(
+            Invoice::exist_invoice(origin),
+                Error::<Test>::NoInvoiceFound);
+    })
+}
+
 /*
 #[test]
 fn pay_invoices_same_address_error() {

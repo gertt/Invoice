@@ -18,11 +18,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="&#10;- invoice system method 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/mock.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/mock.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/tests.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/tests.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +57,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/Users/elioprifti/CLionProjects/Invoice/pallets/invoice/src",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.disableDetachedFileInspection/Users/gertiprifti/CLionProjects/EscrowPallet2/pallets/invoice/src/benchmarking.rs": "true",
-    "org.rust.hideNoCargoProjectNotifications/Users/gertiprifti/CLionProjects/InvoicePallet/pallets/invoice/src/lib.rs": "true",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/elioprifti/CLionProjects/Invoice/pallets/invoice/src&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.disableDetachedFileInspection/Users/gertiprifti/CLionProjects/EscrowPallet2/pallets/invoice/src/benchmarking.rs&quot;: &quot;true&quot;,
+    &quot;org.rust.hideNoCargoProjectNotifications/Users/gertiprifti/CLionProjects/InvoicePallet/pallets/invoice/src/lib.rs&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pallets/invoice/src" />
@@ -89,7 +84,7 @@
       <recent name="$PROJECT_DIR$/pallets/escrow/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.Run">
+  <component name="RunManager" selected="Cargo.Test tests::show_all_invoices_exist">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
       <option name="command" value="run  -- --dev --tmp" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -141,8 +136,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tests::sign_contract_test3" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package escrow --lib tests::sign_contract_test3 -- --exact" />
+    <configuration name="Test tests::show_all_invoices_exist" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package invoice --lib tests::show_all_invoices_exist -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -194,7 +189,7 @@
     </configuration>
     <list>
       <item itemvalue="Cargo.Run" />
-      <item itemvalue="Cargo.Test tests::sign_contract_test3" />
+      <item itemvalue="Cargo.Test tests::show_all_invoices_exist" />
       <item itemvalue="Cargo.Test tests::send_funds_test1" />
       <item itemvalue="Cargo.Test tests::send_funds_test2" />
       <item itemvalue="Cargo.Test tests::withdraw_funds_test3" />
@@ -202,11 +197,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test tests::show_all_invoices_exist" />
         <item itemvalue="Cargo.Test tests::send_funds_test2" />
         <item itemvalue="Cargo.Test tests::send_funds_test1" />
         <item itemvalue="Cargo.Test tests::withdraw_funds_test4" />
         <item itemvalue="Cargo.Test tests::withdraw_funds_test3" />
-        <item itemvalue="Cargo.Test tests::sign_contract_test3" />
       </list>
     </recent_temporary>
   </component>

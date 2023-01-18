@@ -102,6 +102,9 @@ pub mod pallet {
 
 		/// AnyError
 		AnyError,
+
+		/// NoInvoiceFound
+		NoInvoiceFound,
 	}
 
 	/// Create invoice between two addresses
@@ -150,32 +153,17 @@ pub mod pallet {
 			Ok(().into())
 		}
 
-		/*
-		/// Show all invoices
+		/// Exist any invoice stored
 		#[pallet::weight(10_000)]
-		pub fn show_all_invoices(origin: OriginFor<T>) -> DispatchResultWithPostInfo {
+		pub fn exist_invoice(origin: OriginFor<T>) -> DispatchResultWithPostInfo {
 			// Check if Tx is signed
 			let from = ensure_signed(origin)?;
-			// Check if the sender and receiver have not the same address
 
-			if <InvoiceSender<T>>::contains_key(&from) {
-				let maybe_invoice_sender = <InvoiceSender<T>>::get(&from);
-				if let Some(_invoice_sender) = maybe_invoice_sender {
-					//Self::deposit_event(Event::InvoiceListEvent(invoice_sender.get(index)));
-					//for i in invoice_sender {
-					//Self::deposit_event(Event::InvoiceListEvent(invoice_sender));
-					//Self::deposit_event(Event::InvoiceEvent(i.origin, i.to, i.amount, i.msg, i.status, i.id));
-					//}
-				}
-			}
-
-			/*			if <InvoiceReceiver<T>>::contains_key(&from) {
-				let maybe_invoice_receiver = <InvoiceReceiver<T>>::get(&from);
-				if let Some(invoice_receiver) = maybe_invoice_receiver {
-					//Self::deposit_event(Event::InvoiceListEvent(invoice_receiver));
-				}
-			}*/
-
+			let is_invoice_present = <InvoiceSender<T>>::contains_key(&from) || <InvoiceReceiver<T>>::contains_key(&from);
+			// Check if exist invoice on sender or receiver
+			ensure!(is_invoice_present ,
+				Error::<T>::NoInvoiceFound
+                );
 			Ok(().into())
 		}
 
@@ -212,7 +200,5 @@ pub mod pallet {
 			}
 			Err(<Error<T>>::AnyError.into())
 		}
-
-		*/
 	}
 }
