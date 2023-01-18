@@ -29,6 +29,24 @@ Use Rust's native `cargo` command to build and launch the template node:
 cargo run --release -- --dev
 ```
 
+
+If you have problem with rust version run:
+
+```sh
+rustup override set nightly-2022-07-28
+rustup target add wasm32-unknown-unknown
+```
+
+
+### Run Test
+
+Use Rust's native `cargo` command to run tests:
+
+```sh
+cargo test
+```
+
+
 ### Build
 
 The `cargo run` command will perform an initial build. Use the following command to build the node
@@ -38,6 +56,26 @@ without launching it:
 cargo build --release
 ```
 
+
+### Benchmarking
+
+Use Rust's native `cargo` command to run benchmark:
+
+```sh
+cargo build --release --features runtime-benchmarks
+
+./target/release/node-template benchmark pallet \                                                       
+   --chain dev \     
+   --execution=wasm \         
+   --wasm-execution=compiled \
+   --pallet invoice \
+   --extrinsic "*" \
+   --steps 20 \ 
+   --repeat 10 \                         
+  --output pallets/invoice/src/weights.rs
+```
+
+
 ### Embedded Docs
 
 Once the project has been built, the following command can be used to explore all parameters and
@@ -46,6 +84,7 @@ subcommands:
 ```sh
 ./target/release/node-template -h
 ```
+
 
 ## Run
 
@@ -57,24 +96,24 @@ node.
 
 This command will start the single-node development chain with non-persistent state:
 
-```bash
+bash
 ./target/release/node-template --dev
-```
+
 
 Purge the development chain's state:
 
-```bash
+bash
 ./target/release/node-template purge-chain --dev
-```
+
 
 Start the development chain with detailed logging:
 
-```bash
+bash
 RUST_BACKTRACE=1 ./target/release/node-template -ldebug --dev
-```
+
 
 > Development chain means that the state of our chain will be in a tmp folder while the nodes are
-> running. Also, **alice** account will be authority and sudo account as declared in the
+> running. Also, *alice* account will be authority and sudo account as declared in the
 > [genesis state](https://github.com/substrate-developer-hub/substrate-node-template/blob/main/node/src/chain_spec.rs#L49).
 > At the same time the following accounts will be pre-funded:
 > - Alice
@@ -87,7 +126,7 @@ so the db can be stored in the provided folder instead of a temporal one. We cou
 to store different chain databases, as a different folder will be created per different chain that
 is ran. The following commands shows how to use a newly created folder as our db base path.
 
-```bash
+bash
 // Create a folder to use as the db base path
 $ mkdir my-chain-state
 
@@ -101,15 +140,20 @@ $ ls ./my-chain-state/chains/
 dev
 $ ls ./my-chain-state/chains/dev
 db keystore network
-```
 
 
 ### Connect with Polkadot-JS Apps Front-end
 
-Once the node template is running locally, you can connect it with **Polkadot-JS Apps** front-end
+Once the node template is running locally, you can connect it with *Polkadot-JS Apps* front-end
 to interact with your chain. [Click
 here](https://polkadot.js.org/apps/#/explorer?rpc=ws://localhost:9944) connecting the Apps to your
 local node template.
+
+### Create an invoice
+- Go to [polkadot.js](https://polkadot.js.org/apps/#/extrinsics)
+- On the top of the menu bar select developer
+- To the drop-down “submit the following extrinsic“ select invoice and createinvoice()
+- The sender and the receiver must be different.
 
 ### Multi-Node Local Testnet
 
@@ -156,9 +200,9 @@ There are several files in the `node` directory - take special note of the follo
 After the node has been [built](#build), refer to the embedded documentation to learn more about the
 capabilities and configuration parameters that it exposes:
 
-```shell
+shell
 ./target/release/node-template --help
-```
+
 
 ### Runtime
 
@@ -210,16 +254,16 @@ First, install [Docker](https://docs.docker.com/get-docker/) and
 
 Then run the following command to start a single node development chain.
 
-```bash
+bash
 ./scripts/docker_run.sh
-```
+
 
 This command will firstly compile your code, and then start a local development network. You can
 also replace the default command
 (`cargo build --release && ./target/release/node-template --dev --ws-external`)
 by appending your own. A few useful ones are as follow.
 
-```bash
+bash
 # Run Substrate node without re-compiling
 ./scripts/docker_run.sh ./target/release/node-template --dev --ws-external
 
@@ -228,4 +272,3 @@ by appending your own. A few useful ones are as follow.
 
 # Check whether the code is compilable
 ./scripts/docker_run.sh cargo check
-```
