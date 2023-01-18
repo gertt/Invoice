@@ -167,6 +167,7 @@ pub mod pallet {
 			Ok(().into())
 		}
 
+		/*
 		/// Create invoice between two addresses
 		#[pallet::weight(10_000)]
 		pub fn pay_invoices(sender: OriginFor<T>, receiver: T::AccountId, id: u64) -> DispatchResult {
@@ -200,5 +201,6 @@ pub mod pallet {
 			}
 			Err(<Error<T>>::AnyError.into())
 		}
+		*/
 	}
 }
