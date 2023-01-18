@@ -16,8 +16,11 @@
     <cargoProject FILE="$PROJECT_DIR$/pallets/invoice/Cargo/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="&#10;- invoice system method 1">
+    <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="Add exist_invoice&#10;Add unit tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/benchmarking.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/benchmarking.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/weights.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/weights.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +87,7 @@
       <recent name="$PROJECT_DIR$/pallets/escrow/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.Test tests::show_all_invoices_exist">
+  <component name="RunManager" selected="Cargo.Test tests::exist_invoice_2">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
       <option name="command" value="run  -- --dev --tmp" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -102,8 +105,25 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tests::send_funds_test1" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package escrow --lib tests::send_funds_test1 -- --exact" />
+    <configuration name="Test tests::exist_invoice_1" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package invoice --lib tests::exist_invoice_1 -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test tests::exist_invoice_2" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package invoice --lib tests::exist_invoice_2 -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -136,6 +156,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test tests::show_all_invoices_error_no_invoice_found" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package invoice --lib tests::show_all_invoices_error_no_invoice_found -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test tests::show_all_invoices_exist" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package invoice --lib tests::show_all_invoices_exist -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -153,55 +190,21 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tests::withdraw_funds_test3" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package escrow --lib tests::withdraw_funds_test3 -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test tests::withdraw_funds_test4" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package escrow --lib tests::withdraw_funds_test4 -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Cargo.Run" />
+      <item itemvalue="Cargo.Test tests::exist_invoice_1" />
+      <item itemvalue="Cargo.Test tests::exist_invoice_2" />
+      <item itemvalue="Cargo.Test tests::show_all_invoices_error_no_invoice_found" />
       <item itemvalue="Cargo.Test tests::show_all_invoices_exist" />
-      <item itemvalue="Cargo.Test tests::send_funds_test1" />
       <item itemvalue="Cargo.Test tests::send_funds_test2" />
-      <item itemvalue="Cargo.Test tests::withdraw_funds_test3" />
-      <item itemvalue="Cargo.Test tests::withdraw_funds_test4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test tests::exist_invoice_2" />
+        <item itemvalue="Cargo.Test tests::exist_invoice_1" />
+        <item itemvalue="Cargo.Test tests::show_all_invoices_error_no_invoice_found" />
         <item itemvalue="Cargo.Test tests::show_all_invoices_exist" />
         <item itemvalue="Cargo.Test tests::send_funds_test2" />
-        <item itemvalue="Cargo.Test tests::send_funds_test1" />
-        <item itemvalue="Cargo.Test tests::withdraw_funds_test4" />
-        <item itemvalue="Cargo.Test tests::withdraw_funds_test3" />
       </list>
     </recent_temporary>
   </component>
@@ -264,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670152527603</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add exist_invoice&#10;Add unit tests">
+      <created>1674080591251</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674080591251</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +296,8 @@
     <MESSAGE value="- added withdraw_funds method&#10;- added send_funds method" />
     <MESSAGE value="&#10;- invoice system" />
     <MESSAGE value="&#10;- invoice system method 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;- invoice system method 1" />
+    <MESSAGE value="Add exist_invoice&#10;Add unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add exist_invoice&#10;Add unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

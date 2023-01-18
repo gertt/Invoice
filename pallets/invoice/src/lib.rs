@@ -154,16 +154,16 @@ pub mod pallet {
 		}
 
 		/// Exist any invoice stored
-		#[pallet::weight(10_000)]
+		#[pallet::weight(T::WeightInfo::exist_invoice())]
 		pub fn exist_invoice(origin: OriginFor<T>) -> DispatchResultWithPostInfo {
 			// Check if Tx is signed
 			let from = ensure_signed(origin)?;
 
 			let is_invoice_present = <InvoiceSender<T>>::contains_key(&from) || <InvoiceReceiver<T>>::contains_key(&from);
+
 			// Check if exist invoice on sender or receiver
-			ensure!(is_invoice_present ,
-				Error::<T>::NoInvoiceFound
-                );
+			ensure!(is_invoice_present,Error::<T>::NoInvoiceFound);
+
 			Ok(().into())
 		}
 
