@@ -63,15 +63,17 @@ Use Rust's native `cargo` command to run benchmark:
 
 ```sh
 cargo build --release --features runtime-benchmarks
+```
 
-./target/release/node-template benchmark pallet \                                                       
-   --chain dev \     
-   --execution=wasm \         
+```sh
+./target/release/node-template benchmark pallet \
+   --chain dev \
+   --execution=wasm \
    --wasm-execution=compiled \
    --pallet invoice \
    --extrinsic "*" \
-   --steps 20 \ 
-   --repeat 10 \                         
+   --steps 20 \
+   --repeat 10 \
   --output pallets/invoice/src/weights.rs
 ```
 
