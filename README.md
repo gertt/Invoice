@@ -162,12 +162,6 @@ local node template.
 - On the top of the menu bar select developer
 - To the drop-down “submit the following extrinsic“ select invoice and existinginvoice()
 
-
-### Check for an existing invoice
-- Go to [polkadot.js](https://polkadot.js.org/apps/#/extrinsics)
-- On the top of the menu bar select developer
-- To the drop-down “submit the following extrinsic“ select invoice and existinginvoice()
-
 ### Pay an invoice
 - Go to https://polkadot.js.org/apps/#/extrinsics 
 - On the top of the menu bar select developer
