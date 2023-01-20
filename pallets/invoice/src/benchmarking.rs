@@ -55,6 +55,19 @@ benchmarks! {
 	}
 
 
+	pay_invoice {
+		let caller: T::AccountId = whitelisted_caller();
+		let to: T::AccountId = account("receiver", 0, 0);
+		let amount = BalanceOf::<T>::max_value();
+		let msg = Vec::from([2, 23, 34, 45]);
+
+       assert_ok!(
+			Invoice::<T>::create_invoice(RawOrigin::Signed(caller.clone()).into(), to.clone(), amount.clone(), msg.clone())
+		);
+
+	}: _(RawOrigin::Signed(to.clone()), caller.clone(), 0)
+
+
 	impl_benchmark_test_suite!(Invoice, crate::mock::new_test_ext(), crate::mock::Test);
 }
 

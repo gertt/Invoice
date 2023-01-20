@@ -79,7 +79,7 @@ fn exist_invoice_2() {
     })
 }
 
-/*
+
 #[test]
 fn pay_invoices_same_address_error() {
     new_test_ext().execute_with(|| {
@@ -101,7 +101,7 @@ fn pay_invoices_same_address_error() {
 }
 
 #[test]
-fn pay_invoices_error_any_1() {
+fn pay_invoice_error_any_1() {
     new_test_ext().execute_with(|| {
         const ALICE: u64 = 1;
         const BOB: u64 = 2;
@@ -117,7 +117,7 @@ fn pay_invoices_error_any_1() {
                 amount.clone(),
                 msg.clone()));
 
-        assert_noop!(Invoice::pay_invoices(
+        assert_noop!(Invoice::pay_invoice(
                 origin.clone(),
                 to,
                 0),  Error::<Test>::AnyError);
@@ -126,8 +126,10 @@ fn pay_invoices_error_any_1() {
 
 
 #[test]
-fn pay_invoices_error_any_2() {
+fn pay_invoices_success() {
     new_test_ext().execute_with(|| {
+        type AccountId = u64;
+        type BalanceOf = u64;
         const ALICE: u64 = 1;
         const BOB: u64 = 2;
 
@@ -142,16 +144,10 @@ fn pay_invoices_error_any_2() {
                 amount.clone(),
                 msg.clone()));
 
-        let origin = Origin::signed(ALICE);
-        let to = BOB;
-        let id = 20;
-
-        assert_noop!(Invoice::pay_invoices(
-                origin.clone(),
-                to,
-                id),  Error::<Test>::AnyError);
+        assert_ok!(Invoice::pay_invoice(
+               Origin::signed(ALICE),
+                 BOB,
+            0));
     })
 }
-
-*/
 

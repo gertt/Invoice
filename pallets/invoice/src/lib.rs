@@ -167,10 +167,9 @@ pub mod pallet {
 			Ok(().into())
 		}
 
-		/*
 		/// Create invoice between two addresses
-		#[pallet::weight(10_000)]
-		pub fn pay_invoices(sender: OriginFor<T>, receiver: T::AccountId, id: u64) -> DispatchResult {
+		#[pallet::weight(T::WeightInfo::pay_invoice())]
+		pub fn pay_invoice(sender: OriginFor<T>, receiver: T::AccountId, id: u64) -> DispatchResult {
 			// Check if Tx is signed
 			let from = ensure_signed(sender)?;
 
@@ -183,7 +182,7 @@ pub mod pallet {
 			let mut is_unpaid_invoice = false;
 			if let Some(mut invoices_recevier) = Self::invoice_receiver(&from) {
 				for invoice in &mut invoices_recevier {
-					if invoice.id == id  && invoice.status == false {
+					if invoice.id == id && invoice.status == false {
 						invoice.status = true;
 						is_unpaid_invoice = true
 					}
@@ -201,6 +200,5 @@ pub mod pallet {
 			}
 			Err(<Error<T>>::AnyError.into())
 		}
-		*/
 	}
 }
