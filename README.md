@@ -149,12 +149,10 @@ to interact with your chain. [Click
 here](https://polkadot.js.org/apps/#/explorer?rpc=ws://localhost:9944) connecting the Apps to your
 local node template.
 
-### Create an invoice
-- Go to [polkadot.js](https://polkadot.js.org/apps/#/extrinsics)
+### Pay an invoice
+- Go to https://polkadot.js.org/apps/#/extrinsics 
 - On the top of the menu bar select developer
-- To the drop-down “submit the following extrinsic“ select invoice and createinvoice()
-- The sender and the receiver must be different.
-
+- To the drop-down “submit the following extrinsic“ select invoice and payinvoices().
 ### Multi-Node Local Testnet
 
 If you want to see the multi-node consensus algorithm in action, refer to our
