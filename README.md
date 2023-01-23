@@ -169,7 +169,7 @@ local node template.
 - Msg for example: Test 
 - Submit Transaction
 - Change from createInvoice to payInvoice
-- Change the role from  (ALICE to BOB)  to (BOB to ALICE) BOB has to pay for the invoice got from ALICE
+- Change the role from (ALICE to BOB) to (BOB to ALICE) BOB got the invoice from ALICE and should pay it.
 
 ### Multi-Node Local Testnet
 
