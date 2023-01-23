@@ -100,8 +100,8 @@ pub mod pallet {
 		/// Contract is signed by the same addresses
 		SameAddressError,
 
-		/// AnyError
-		AnyError,
+		/// NoInvoiceOrPaid
+		NoInvoiceOrPaid,
 
 		/// NoInvoiceFound
 		NoInvoiceFound,
@@ -168,14 +168,13 @@ pub mod pallet {
 		}
 
 		/// Create invoice between two addresses
-		#[pallet::weight(T::WeightInfo::pay_invoice())]
+		#[pallet::weight(0)]
 		pub fn pay_invoice(sender: OriginFor<T>, receiver: T::AccountId, id: u64) -> DispatchResult {
 			// Check if Tx is signed
 			let from = ensure_signed(sender)?;
 
 			ensure!(from != receiver, Error::<T>::SameAddressError);
 			// Check if the sender and receiver have not the same address
-
 
 			let _maybe_contract_sender = <InvoiceSender<T>>::get(&from);
 
@@ -198,7 +197,7 @@ pub mod pallet {
 					return Ok(());
 				}
 			}
-			Err(<Error<T>>::AnyError.into())
+			Err(<Error<T>>::NoInvoiceOrPaid.into())
 		}
 	}
 }

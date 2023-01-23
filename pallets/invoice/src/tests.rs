@@ -120,7 +120,7 @@ fn pay_invoice_error_any_1() {
         assert_noop!(Invoice::pay_invoice(
                 origin.clone(),
                 to,
-                0),  Error::<Test>::AnyError);
+                0),  Error::<Test>::NoInvoiceOrPaid);
     })
 }
 
