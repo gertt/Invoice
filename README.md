@@ -161,9 +161,15 @@ local node template.
 - To the drop-down “submit the following extrinsic“ select invoice and existinginvoice()
 
 ### Pay an invoice
-- Go to https://polkadot.js.org/apps/#/extrinsics 
-- On the top of the menu bar select developer
-- To the drop-down “submit the following extrinsic“ select invoice and payinvoices().
+1-Go to https://polkadot.js.org/apps/#/extrinsics 
+2-On the top of the menu bar select developer
+3- To the drop-down “submit the following extrinsic“ select invoice and createInvoice().
+4-Select two different acc example: Using the selected account - (ALICE to BOB)
+5-Set amount for example: 10
+6-Msg for example: Test 
+7-Submit Transaction
+8-Change from createInvoice to payInvoice
+9-Change the role from  (ALICE to BOB)  to (BOB to ALICE) BOB has to pay for the invoice got from ALICE
 
 ### Multi-Node Local Testnet
 
