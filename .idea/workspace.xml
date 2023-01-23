@@ -16,7 +16,7 @@
     <cargoProject FILE="$PROJECT_DIR$/pallets/invoice/Cargo/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0" />
+    <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="- fix weight" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -276,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674506587213</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- fix weight">
+      <created>1674507438439</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674507438440</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +307,8 @@
     <MESSAGE value="&#10;- invoice system method 1" />
     <MESSAGE value="Add exist_invoice&#10;Add unit tests" />
     <MESSAGE value="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0" />
+    <MESSAGE value="- fix weight" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix weight" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -175,7 +175,6 @@ pub mod pallet {
 
 			ensure!(from != receiver, Error::<T>::SameAddressError);
 			// Check if the sender and receiver have not the same address
-
 			let _maybe_contract_sender = <InvoiceSender<T>>::get(&from);
 
 			let mut is_unpaid_invoice = false;
