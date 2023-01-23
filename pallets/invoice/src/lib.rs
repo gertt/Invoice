@@ -154,7 +154,7 @@ pub mod pallet {
 		}
 
 		/// Exist any invoice stored
-		#[pallet::weight(T::WeightInfo::exist_invoice())]
+		#[pallet::weight(0)]
 		pub fn exist_invoice(origin: OriginFor<T>) -> DispatchResultWithPostInfo {
 			// Check if Tx is signed
 			let from = ensure_signed(origin)?;
@@ -168,7 +168,7 @@ pub mod pallet {
 		}
 
 		/// Create invoice between two addresses
-		#[pallet::weight(0)]
+		#[pallet::weight(T::WeightInfo::pay_invoice())]
 		pub fn pay_invoice(sender: OriginFor<T>, receiver: T::AccountId, id: u64) -> DispatchResult {
 			// Check if Tx is signed
 			let from = ensure_signed(sender)?;

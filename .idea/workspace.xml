@@ -16,10 +16,7 @@
     <cargoProject FILE="$PROJECT_DIR$/pallets/invoice/Cargo/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="Add exist_invoice&#10;Add unit tests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pallets/invoice/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/pallets/invoice/src/lib.rs" afterDir="false" />
-    </list>
+    <list default="true" id="0f94cc98-2443-42bd-b46d-4130d0942d61" name="Changes" comment="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +82,7 @@
       <recent name="$PROJECT_DIR$/pallets/escrow/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.Test tests::pay_invoice_error_any_1">
+  <component name="RunManager" selected="Cargo.Test tests::pay_invoices_success">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
       <option name="command" value="run  -- --dev --tmp" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -154,8 +151,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tests::show_all_invoices_error_no_invoice_found" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package invoice --lib tests::show_all_invoices_error_no_invoice_found -- --exact" />
+    <configuration name="Test tests::pay_invoices_success" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package invoice --lib tests::pay_invoices_success -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -171,8 +168,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test tests::show_all_invoices_exist" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package invoice --lib tests::show_all_invoices_exist -- --exact" />
+    <configuration name="Test tests::show_all_invoices_error_no_invoice_found" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package invoice --lib tests::show_all_invoices_error_no_invoice_found -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <option name="channel" value="DEFAULT" />
       <option name="requiredFeatures" value="true" />
@@ -191,18 +188,18 @@
     <list>
       <item itemvalue="Cargo.Run" />
       <item itemvalue="Cargo.Test tests::pay_invoice_error_any_1" />
+      <item itemvalue="Cargo.Test tests::pay_invoices_success" />
       <item itemvalue="Cargo.Test tests::exist_invoice_1" />
       <item itemvalue="Cargo.Test tests::exist_invoice_2" />
       <item itemvalue="Cargo.Test tests::show_all_invoices_error_no_invoice_found" />
-      <item itemvalue="Cargo.Test tests::show_all_invoices_exist" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test tests::pay_invoices_success" />
         <item itemvalue="Cargo.Test tests::pay_invoice_error_any_1" />
         <item itemvalue="Cargo.Test tests::exist_invoice_2" />
         <item itemvalue="Cargo.Test tests::exist_invoice_1" />
         <item itemvalue="Cargo.Test tests::show_all_invoices_error_no_invoice_found" />
-        <item itemvalue="Cargo.Test tests::show_all_invoices_exist" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674080591251</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0">
+      <created>1674506587213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674506587213</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +299,8 @@
     <MESSAGE value="&#10;- invoice system" />
     <MESSAGE value="&#10;- invoice system method 1" />
     <MESSAGE value="Add exist_invoice&#10;Add unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add exist_invoice&#10;Add unit tests" />
+    <MESSAGE value="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="- AnyError to NoInvoiceOrPaid&#10;- Set weight of pay_invoice to 0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
